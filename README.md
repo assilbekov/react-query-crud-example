@@ -1,6 +1,6 @@
 # React Query CRUD Example with Authentication
 
-This is a comprehensive guide answering the main questions about React Query usage in your React application. It covers all important topics and allows you to build your app within 10 minutes. We will be using [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) here. I'll make another guide to use Axios.
+This is a comprehensive guide answering the main questions about React Query usage in your React application. It covers all important topics and allows you to build your app within 10 minutes. You see the code example in the `src` folder. We will be using [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) here. I'll make another guide to use Axios.
 
 - Why use React Query and why not to use Redux and other state management frameworks to store your API data?
 - How to fetch, store, and share that data across all your components?
