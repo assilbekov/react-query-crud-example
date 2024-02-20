@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { AuthContext } from './state/AuthContext'
-import { AuthPage, CreatePostPage, PostPage, PostsPage, SearchPostsPage } from './pages';
+import { AuthPage, CreatePostPage, PostPage, PostsPage, QueryPage, SearchPostsPage, } from './pages';
 
 function App() {
   const { token, logout, loginMutation } = useContext(AuthContext);
@@ -21,6 +21,9 @@ function App() {
           <SearchPostsPage />
         </div>
       )}
+      <QueryPage />
+      <QueryPage />
+      <QueryPage />
     </div>
   )
 }

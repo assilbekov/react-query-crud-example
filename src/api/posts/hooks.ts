@@ -64,17 +64,11 @@ export const useUpdatePostMutation = () => {
 
   return useMutation({
     mutationFn: (post: Post) => updatePost(post, token!),
-    onMutate: async (_request) => {
-      // Do something before the mutation
-    },
     onSuccess: (newPost) => {
       // https://tanstack.com/query/latest/docs/framework/react/guides/invalidations-from-mutations.
       // Invalidate data from the cache and make a new network request to refecth the data.
       queryClient.invalidateQueries({ queryKey: ['posts', { id: newPost.id }] });
       queryClient.invalidateQueries({ queryKey: ['posts', { type: "list" }] });
-    },
-    onError: (_error) => {
-      // Do something if the mutation fails
     },
   });
 }
@@ -85,9 +79,6 @@ export const useDeletePostMutation = () => {
 
   return useMutation({
     mutationFn: (id: number) => deletePost(id, token!),
-    onMutate: async (_request) => {
-      // Do something before the mutation
-    },
     onSuccess: (_result, postId) => {
       // Prevent wasting a network call. Updates from Mutation Responses
       queryClient.setQueryData(['posts', { postId }], undefined);
@@ -97,9 +88,6 @@ export const useDeletePostMutation = () => {
         ...oldData,
         posts: oldData.posts.filter((post) => post.id !== postId),
       }));
-    },
-    onError: (_error) => {
-      // Do something if the mutation fails
     },
   });
 }
