@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 
 
 export const QueryPage: React.FC = () => {
-  const { isPending, error, data } = useQuery({
+  const { isPending, error, data, } = useQuery({
     queryKey: ['repoData'],
     queryFn: async () => {
       const res = await fetch('https://api.github.com/repos/TanStack/query');
@@ -16,8 +16,6 @@ export const QueryPage: React.FC = () => {
       retry: false,
       staleTime: 5000 * 5000, // 5000 seconds
   });
-
-  console.log({isPending, error, data})
 
   if (isPending) return 'Loading...'
 
